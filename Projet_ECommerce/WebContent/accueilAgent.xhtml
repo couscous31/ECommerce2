@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Login</title>
+</h:head>
+
+<h:body>
+
+	<ui:composition template="/template/layoutAgent.xhtml">
+
+		<ui:define name="corps">
+
+			<h:form>
+
+				<h3>Catégories</h3>
+				<p:dataTable var="cat" value="#{sessionScope.categorieListe}" reflow="true"
+					rows="5" paginator="true">
+					<p:column headerText="Id">
+						<h:outputText value="#{cat.idCategorie}" />
+					</p:column>
+
+					<p:column headerText="Nom">
+						<h:outputText value="#{cat.nomCategorie}" />
+					</p:column>
+
+					<p:column headerText="Photo">
+						<p:graphicImage value="#{cat.photoCat}" />
+					</p:column>
+
+					<p:column headerText="Description">
+						<h:outputText value="#{cat.description}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+
+			<h:form>
+
+				<h3>Produits</h3>
+				<p:dataTable var="pr" value="#{sessionScope.produitsListe}" reflow="true" rows="5"
+					paginator="true">
+					<p:column headerText="Id">
+						<h:outputText value="#{pr.id}" />
+					</p:column>
+
+					<p:column headerText="Designation">
+						<h:outputText value="#{pr.designation}" />
+					</p:column>
+
+					<p:column headerText="Description">
+						<h:outputText value="#{pr.description}" />
+					</p:column>
+
+					<p:column headerText="Prix">
+						<h:outputText value="#{pr.prix}" />
+					</p:column>
+
+					<p:column headerText="Quantité">
+						<h:outputText value="#{pr.quantite}" />
+					</p:column>
+
+					<p:column headerText="Photo">
+						<p:graphicImage value="#{pr.photoProd}" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+
+
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Liste Cat</title>
+</h:head>
+
+<h:body>
+
+
+	<ui:composition template="/template/layoutAgent.xhtml">
+		<ui:define name="corps">
+
+<h:form id="form">
+
+				<p:growl id="msgs" showDetail="true" />
+
+				<p:dataTable var="cat" value="#{sessionScope.categorieListe}"
+					editable="true" style="text-align: center">
+					<f:facet name="header">Liste des catégories </f:facet>
+
+					<p:ajax event="rowEdit" listener="#{catMB.edittable}"
+						update=":form:msgs" />
+					<p:ajax event="rowEditCancel" listener="#{catMB.edittable}"
+						update=":form:msgs" />
+
+					<p:column headerText="Id">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{catMB.idCategorie}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText id="modelInput" value="#{catMB.idCategorie}"
+									style="width:100%" rendered="false"/>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Nom">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{catMB.nomCategorie}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{catMB.nomCategorie}" style="width:100%" label="Nom" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Description">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{catMB.description}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{catMB.description}" style="width:100%"
+									label="Description" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Photo">
+						<p:cellEditor>
+							<f:facet name="output">
+								<p:graphicImage value="#{catMB.photoCat}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{catMB.photoCat}" style="width:100%"
+									label="Photo" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Opération">
+						<h:commandLink value="Supprimer" action="#{catMB.supprimerCategorie}"
+							update="@all">
+							<f:setPropertyActionListener value="#{catMB.idCategorie}"
+								target="#{catMB.categorie.idCategorie}" />
+						</h:commandLink>
+					</p:column>
+
+					<p:column style="width:32px">
+						<p:rowEditor />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

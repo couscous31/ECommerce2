@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Rechercher</title>
+</h:head>
+
+<h:body>
+
+<ui:composition template="/template/layoutAgent.xhtml">
+
+<ui:define name="corps">
+
+<h:form>
+		<h:panelGrid columns="2">
+				ID : <h:inputText value="#{catMB.categorie.idCategorie}" />
+			<p:commandButton value="Rechercher" action="#{catMB.rechercherCategorieById}"
+				update="@all" />
+		</h:panelGrid>
+	</h:form>
+
+	<h:form>
+
+		<p:dataTable var="cat" value="#{catMB.categorie}"
+			style="text-align: center" rendered="#{catMB.indice}">
+			<f:facet name="header">Liste des catégories</f:facet>
+
+			<p:column headerText="Id" style="text-align: center">
+				<h:outputText value="#{cat.idCategorie}" />
+			</p:column>
+
+			<p:column headerText="Nom" style="text-align: center">
+				<h:outputText value="#{cat.nomCategorie}" />
+			</p:column>
+
+			<p:column headerText="Description" style="text-align: center">
+				<h:outputText value="#{cat.description}" />
+			</p:column>
+
+			<p:column headerText="Photo" style="text-align: center">
+				<h:outputText value="#{cat.photoCat}" />
+			</p:column>
+
+		</p:dataTable>
+
+	</h:form>
+
+
+	<h:messages style="color: red" />
+
+
+
+
+
+
+
+
+
+
+
+</ui:define>
+
+
+
+</ui:composition>
+
+
+
+
+
+
+
+
+
+</h:body>
+
+
+
+
+
+</html>

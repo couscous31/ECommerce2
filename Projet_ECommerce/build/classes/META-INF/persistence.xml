@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+
+	<persistence-unit name="pu" transaction-type="JTA">
+
+		<!-- specifier le nom de la datasource -->
+		<jta-data-source>java:/eCommerce</jta-data-source>
+
+		<!-- liste des classes pesistantes -->
+		<class>fr.adaming.model.Agent</class>
+		<class>fr.adaming.model.Categorie</class>
+		<class>fr.adaming.model.Client</class>
+		<class>fr.adaming.model.Commande</class>
+		<class>fr.adaming.model.LigneCommande</class>
+		<class>fr.adaming.model.Produit</class>
+		
+		<!-- les proprietes de hibernate -->
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+
+
+	</persistence-unit>
+</persistence>

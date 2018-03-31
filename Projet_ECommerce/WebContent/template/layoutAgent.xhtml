@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Layout Agent</title>
+</h:head>
+
+<h:body>
+
+	<!-- Inclure le header -->
+	<div style="text-align: center; padding: 20px;">
+		<ui:insert name="header">
+			<ui:include src="/template/headerAgent.xhtml" />
+		</ui:insert>
+	</div>
+
+	<!-- Inclure le corps -->
+	<div>
+		<ui:insert name="corps">
+			<ui:include src="/template/corpsAgent.xhtml" />
+		</ui:insert>
+	</div>
+
+
+
+
+
+
+
+
+</h:body>
+
+
+
+
+
+</html>

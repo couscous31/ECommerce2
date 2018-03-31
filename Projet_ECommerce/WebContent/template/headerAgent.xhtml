@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Header Agent</title>
+</h:head>
+
+<h:body>
+
+	<ui:composition>
+
+		<h:form>
+			<p:growl id="messages" />
+
+			<p:menubar>
+				<p:menuitem icon="ui-icon-home" url="accueilAgent.xhtml"/>
+				<p:submenu label="Catégories">
+					<p:menuitem value="Consulter la liste" url="listeCat.xhtml" />
+					<p:menuitem value="Nouvelle catégorie" url="ajouterCategorie.xhtml" />
+					<p:menuitem value="Recherche catégorie" url="rechercherCategorieParId.xhtml" />
+					<p:separator />
+					<p:menuitem value="Quit" url="accueilAgent.xhtml" />
+				</p:submenu>
+
+				<p:submenu label="Produits">
+					<p:menuitem value="Consulter la liste" url="listePr.xhtml" />
+					<p:menuitem value="Nouveau produit" url="ajouterProduit.xhtml" />
+					<p:menuitem value="Recherche produit" url="rechercherProduitParId.xhtml" />
+				</p:submenu>
+
+				<p:menuitem value="Quit" action="#{aMB.seDeconnecter}" url="accueil.xhtml" icon="ui-icon-close" />
+
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Recherche" />
+					<p:commandButton type="button" value="Logout"
+						icon="ui-icon-extlink" />
+				</f:facet>
+			</p:menubar>
+
+		</h:form>
+
+
+
+	</ui:composition>
+
+
+</h:body>
+
+
+
+
+
+</html>

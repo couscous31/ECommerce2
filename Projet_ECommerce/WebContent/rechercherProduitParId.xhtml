@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Ajouter Cat</title>
+</h:head>
+
+<h:body>
+
+
+	<ui:composition template="/template/layoutAgent.xhtml">
+		<ui:define name="corps">
+
+			<h:form>
+				<h:panelGrid columns="2">
+				ID : <h:inputText value="#{prMB.produit.id}" />
+					<p:commandButton value="Rechercher"
+						action="#{prMB.rechercherProduitParId}" update="@all" />
+				</h:panelGrid>
+			</h:form>
+
+			<h:form>
+
+				<p:dataTable var="pr" value="#{prMB.produit}"
+					style="text-align: center" rendered="#{prMB.indice}">
+					<f:facet name="header">Liste des produits</f:facet>
+
+					<p:column headerText="Id" style="text-align: center">
+						<h:outputText value="#{pr.id}" />
+					</p:column>
+
+					<p:column headerText="Désignation" style="text-align: center">
+						<h:outputText value="#{pr.designation}" />
+					</p:column>
+
+					<p:column headerText="Description" style="text-align: center">
+						<h:outputText value="#{pr.description}" />
+					</p:column>
+					
+					<p:column headerText="Prix" style="text-align: center">
+						<h:outputText value="#{pr.prix}" />
+					</p:column>
+					
+					<p:column headerText="Quantité" style="text-align: center">
+						<h:outputText value="#{pr.quantite}" />
+					</p:column>
+
+					<p:column headerText="Photo" style="text-align: center">
+						<p:graphicImage value="#{pr.photoProd}" />
+					</p:column>
+
+				</p:dataTable>
+
+			</h:form>
+
+
+			<h:messages style="color: red" />
+
+
+
+		</ui:define>
+	</ui:composition>
+	
+</h:body>
+</html>

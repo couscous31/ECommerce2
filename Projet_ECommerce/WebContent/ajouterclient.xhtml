@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>S'inscrire</title>
+</h:head>
+<h:body>
+
+<h:form>
+<h:panelGrid columns="2">
+	Nom : <h:inputText value="#{clMB.client.nomClient}"></h:inputText>
+	Adresse : <h:inputText value="#{clMB.client.adresse}"></h:inputText>
+	eMail : <h:inputText value="#{clMB.client.email}"></h:inputText>
+	Tel: <h:inputText value="#{clMB.client.tel}"></h:inputText>
+	
+	<!-- NOTE A WYNDY : RAJOUTER OU NON UN VALIDATOR -->
+
+	<h:commandButton value="S'inscrire"  action="#{clMB.ajoutcl}"></h:commandButton>
+
+</h:panelGrid>
+</h:form>
+
+
+</h:body>
+</html>
